@@ -109,7 +109,7 @@ func contentFromResourceData(d *schema.ResourceData) *Content {
 		Body: &Body{
 			Storage: &Storage{
 				Value:          d.Get("body").(string),
-				Representation: "storage",
+				Representation: "editor2",
 			},
 		},
 		Title: d.Get("title").(string),
