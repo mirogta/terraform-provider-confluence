@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
-	"github.com/mesomorphic/terraform-provider-confluence/confluence"
+	"github.com/mirogta/terraform-provider-confluence/confluence"
 )
 
 func main() {

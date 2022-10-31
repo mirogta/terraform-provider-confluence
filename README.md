@@ -1,4 +1,4 @@
-![](https://github.com/mesomorphic/terraform-provider-confluence/workflows/Build%20and%20Test/badge.svg)
+![](https://img.shields.io/github/workflow/status/mirogta/terraform-provider-confluence/release)
 
 # Terraform Provider for Confluence
 
