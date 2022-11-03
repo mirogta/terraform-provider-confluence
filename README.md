@@ -19,6 +19,13 @@ $ cd terraform-provider-confluence
 $ make install
 ```
 
+## Debugging
+
+See:
+
+- <https://developer.hashicorp.com/terraform/plugin/debugging>
+- <https://opencredo.com/blogs/running-a-terraform-provider-with-a-debugger/>
+
 ## Contributing
 
 Contributions are welcome! Please read the contribution guidelines [Contributing to Terraform - Confluence Provider](.github/CONTRIBUTING.md)
