@@ -17,7 +17,7 @@ test:
 
 build: $(BINARY_NAME)
 
-$(BINARY_NAME):
+$(BINARY_NAME): go.mod go.sum main.go confluence/*.go
 	go build -v -o $(BINARY_NAME)
 
 testacc:
