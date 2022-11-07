@@ -2,7 +2,7 @@
 
 # Terraform Provider for Confluence
 
-[User Documentation](https://mesomorphic.github.io/terraform-provider-confluence/)
+[User Documentation](https://mirogta.github.io/terraform-provider-confluence/)
 
 ## Requirements
 
@@ -14,7 +14,7 @@
 Clone this repository, enter the provider directory, build and install the provider:
 
 ```sh
-$ git clone https://github.com/mesomorphic/terraform-provider-confluence.git
+$ git clone https://github.com/mirogta/terraform-provider-confluence.git
 $ cd terraform-provider-confluence
 $ make install
 ```
