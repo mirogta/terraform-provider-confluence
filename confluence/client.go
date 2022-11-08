@@ -81,7 +81,7 @@ func (c *Client) GetString(path string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	result := responseBody.String()
+	result := base64.StdEncoding.EncodeToString(responseBody.Bytes())
 	return result, nil
 }
 
