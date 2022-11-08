@@ -18,6 +18,8 @@ func resourceAttachment() *schema.Resource {
 			"data": {
 				Type:     schema.TypeString,
 				Required: true,
+				Description: `Base64 representation of the raw bytes of the given file.
+Use the filebase64(path) function when reading directly from a file.`,
 			},
 			"title": {
 				Type:     schema.TypeString,
