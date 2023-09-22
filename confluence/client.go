@@ -195,7 +195,7 @@ func (c *Client) doRaw(method, path, contentType string, body *bytes.Buffer) (*b
 		req.Header.Set("Content-Type", contentType)
 	}
 	req.Header.Add("X-Atlassian-Token", "nocheck")
-	req.Header.Add("Authorization", "Bearer " + c.token)
+	req.Header.Add("Authorization", "Bearer "+c.token)
 	resp, err := c.client.Do(req)
 	if err != nil {
 		return nil, err
