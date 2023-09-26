@@ -18,7 +18,6 @@ type Client struct {
 	baseURL   *url.URL
 	basePath  string
 	publicURL *url.URL
-	token     string
 }
 
 // NewClientInput provides information to connect to the Confluence API
@@ -64,9 +63,7 @@ func NewClient(input *NewClientInput) *Client {
 		Scheme: input.siteScheme,
 		Host:   input.site,
 	}
-	// This is the old version. Now we have to pass the token
-	// alone in a header
-	//baseURL.User = url.UserPassword(input.user, input.token)
+	baseURL.User = url.UserPassword(input.user, input.token)
 	return &Client{
 		client: &http.Client{
 			Timeout: time.Second * 10,
@@ -74,7 +71,6 @@ func NewClient(input *NewClientInput) *Client {
 		baseURL:   &baseURL,
 		basePath:  basePath,
 		publicURL: &publicURL,
-		token:     input.token,
 	}
 }
 
@@ -195,7 +191,6 @@ func (c *Client) doRaw(method, path, contentType string, body *bytes.Buffer) (*b
 		req.Header.Set("Content-Type", contentType)
 	}
 	req.Header.Add("X-Atlassian-Token", "nocheck")
-	req.Header.Add("Authorization", "Bearer " + c.token)
 	resp, err := c.client.Do(req)
 	if err != nil {
 		return nil, err
