@@ -2,9 +2,9 @@ package confluence
 
 import (
 	"bytes"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"io"
 	"mime/multipart"
 	"net/http"
 	"net/url"
@@ -81,7 +81,7 @@ func (c *Client) GetString(path string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	result := responseBody.String()
+	result := base64.StdEncoding.EncodeToString(responseBody.Bytes())
 	return result, nil
 }
 
@@ -157,7 +157,11 @@ func formBytesBuffer(filename, body string) (*bytes.Buffer, string, error) {
 	if err != nil {
 		return nil, "", err
 	}
-	_, err = io.WriteString(part, body)
+	b, err := base64.StdEncoding.DecodeString(body)
+	if err != nil {
+		return nil, "", err
+	}
+	_, err = part.Write(b)
 	if err != nil {
 		return nil, "", err
 	}

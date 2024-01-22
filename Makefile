@@ -17,7 +17,7 @@ test:
 
 build: $(BINARY_NAME)
 
-$(BINARY_NAME):
+$(BINARY_NAME): go.mod go.sum main.go confluence/*.go
 	go build -v -o $(BINARY_NAME)
 
 testacc:
@@ -33,6 +33,7 @@ clean:
 
 install: $(BINARY_NAME)
 	mkdir -p $(INSTALL_DIR)
+	rm $(INSTALL_DIR)/$(BINARY_NAME)_v$(VERSION)
 	cp $(BINARY_NAME) $(INSTALL_DIR)/$(BINARY_NAME)_v$(VERSION)
 
 uninstall:
